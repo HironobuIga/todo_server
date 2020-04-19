@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:11
+    container_name: db
+    ports:
+    - 5432:5432
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+      POSTGRES_INIT_DB_ARGS: "-encoding=UTF-8"
+    volumes:
+    - ./docker/db/init:/docker-entorypoint-initdb.d
